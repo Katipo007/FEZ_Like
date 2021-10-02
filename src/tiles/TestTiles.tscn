@@ -1,31 +1,52 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[sub_resource type="CubeMesh" id=9]
-
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="CubeMesh" id=10]
-material = SubResource( 4 )
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="BoxShape" id=12]
+
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.305882, 0.0156863, 0.878431, 1 )
 
-[sub_resource type="CubeMesh" id=11]
-material = SubResource( 8 )
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+
+[sub_resource type="BoxShape" id=16]
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="BoxShape" id=8]
 
 [node name="TestTiles" type="Spatial"]
 
-[node name="TestBlock1" type="MeshInstance" parent="."]
-mesh = SubResource( 9 )
-material/0 = null
-
 [node name="TestBlock2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
-mesh = SubResource( 10 )
+mesh = SubResource( 2 )
 material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="TestBlock2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="TestBlock2/StaticBody"]
+shape = SubResource( 12 )
 
 [node name="TestBlock3" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
-mesh = SubResource( 11 )
+mesh = SubResource( 5 )
 material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="TestBlock3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="TestBlock3/StaticBody"]
+shape = SubResource( 16 )
+
+[node name="TestBlock1" type="MeshInstance" parent="."]
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="TestBlock1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="TestBlock1/StaticBody"]
+shape = SubResource( 8 )
