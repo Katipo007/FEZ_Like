@@ -63,6 +63,6 @@
 #*.RTF   diff=astextplain
 
 # Godot files
-project.godot   diff=astextplain
-*.tscn          diff=astextplain
-*.tres          diff=astextplain
+*.godot diff
+*.tscn diff
+*.tres diff
